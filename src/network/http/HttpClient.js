@@ -10,7 +10,7 @@ import {
   generateRandomId,
 } from '../../functions/utils';
 import * as Actions from '../../redux/actions';
-import Consts from '../../functions/Consts';
+import Consts from '../../functions/AppStyles';
 import reduxStore from '../../redux/config/redux';
 import {RETRY_HTTP_REQUEST_NUMBER} from '../../data/AppConfig';
 // import * as RNFS from 'react-native-fs';
@@ -22,7 +22,8 @@ const client = axios.create({
   timeout: TIMEOUT_CONNECT,
 });
 
-const TOKEN_EXPIRED_MSG = 'Phiên đăng nhập của bạn đã hết. Vui lòng đăng nhập lại.';
+const TOKEN_EXPIRED_MSG =
+  'Phiên đăng nhập của bạn đã hết. Vui lòng đăng nhập lại.';
 export const OTHER_LOGIN = 'Bạn đã đăng nhập trên thiết bị khác.';
 export const UNEXPECTED_ERROR_MSG = 'Có lỗi không xác định xảy ra';
 
@@ -36,10 +37,10 @@ const requestType = {
 
 const getDefaultHeaders = () => {
   return {
-    'Accept': 'application/json',
+    Accept: 'application/json',
     'Content-type': 'application/json',
     'request-id': generateRandomId(5).toLowerCase(),
-    'os': Platform.OS,
+    os: Platform.OS,
   };
 };
 
@@ -53,10 +54,12 @@ const failureResponse = (err, rawResponse) => {
 
 function getHeaders(headers) {
   let requestHeaders = headers;
-  if (!headers) requestHeaders = getDefaultHeaders();
+  if (!headers) {
+    requestHeaders = getDefaultHeaders();
+  }
 
   if (accessToken) {
-    requestHeaders['Authorization'] = 'Bearer ' + accessToken;
+    requestHeaders.Authorization = 'Bearer ' + accessToken;
   }
 
   return requestHeaders;
@@ -127,41 +130,64 @@ async function doRequest(url, headers, body, type) {
 }
 
 export async function post(
-  url, {
-    body,
-    headers,
-    success,
-    failure,
-    autoShowMsg = true,
-    refLoading = null,
-  } = {}) {
+  url,
+  {body, headers, success, failure, autoShowMsg = true, refLoading = null} = {},
+) {
   showLoading(refLoading);
-  let response = await doRequest(url, getHeaders(headers), body, requestType.post);
+  let response = await doRequest(
+    url,
+    getHeaders(headers),
+    body,
+    requestType.post,
+  );
   hideLoading(refLoading);
 
   return handleResp(response, autoShowMsg, success, failure, refLoading);
 }
 
 export async function path(
-  url, {body, headers, success, failure, autoShowMsg = true, refLoading = null} = {}) {
+  url,
+  {body, headers, success, failure, autoShowMsg = true, refLoading = null} = {},
+) {
   showLoading(refLoading);
-  let response = await doRequest(url, getHeaders(headers), body, requestType.patch);
+  let response = await doRequest(
+    url,
+    getHeaders(headers),
+    body,
+    requestType.patch,
+  );
   hideLoading(refLoading);
 
   return handleResp(response, autoShowMsg, success, failure, refLoading);
 }
 
 export async function put(
-  url, {body, headers, success, failure, autoShowMsg = true, refLoading = null} = {}) {
+  url,
+  {body, headers, success, failure, autoShowMsg = true, refLoading = null} = {},
+) {
   showLoading(refLoading);
-  let response = await doRequest(url, getHeaders(headers), body, requestType.put);
+  let response = await doRequest(
+    url,
+    getHeaders(headers),
+    body,
+    requestType.put,
+  );
   hideLoading(refLoading);
 
   return handleResp(response, autoShowMsg, success, failure, refLoading);
 }
 
 export async function get(
-  url, {params, headers, success, failure, autoShowMsg = true, refLoading = null} = {}) {
+  url,
+  {
+    params,
+    headers,
+    success,
+    failure,
+    autoShowMsg = true,
+    refLoading = null,
+  } = {},
+) {
   showLoading(refLoading);
 
   if (params) {
@@ -175,23 +201,47 @@ export async function get(
     url = url + '?' + strQuery;
   }
 
-  let response = await doRequest(url, getHeaders(headers), null, requestType.get);
+  let response = await doRequest(
+    url,
+    getHeaders(headers),
+    null,
+    requestType.get,
+  );
   hideLoading(refLoading);
 
   return handleResp(response, autoShowMsg, success, failure, refLoading);
 }
 
 export async function dele(
-  url, {body = {}, headers, success, failure, autoShowMsg = true, refLoading = null} = {}) {
+  url,
+  {
+    body = {},
+    headers,
+    success,
+    failure,
+    autoShowMsg = true,
+    refLoading = null,
+  } = {},
+) {
   showLoading(refLoading);
-  let response = await doRequest(url, getHeaders(headers), body, requestType.delete);
+  let response = await doRequest(
+    url,
+    getHeaders(headers),
+    body,
+    requestType.delete,
+  );
   hideLoading(refLoading);
 
   return handleResp(response, autoShowMsg, success, failure, refLoading);
 }
 
 export async function upload(
-  url, uri, name, type, {success, failure, autoShowMsg = true, refLoading = null} = {}) {
+  url,
+  uri,
+  name,
+  type,
+  {success, failure, autoShowMsg = true, refLoading = null} = {},
+) {
   showLoading(refLoading);
   const formData = new FormData();
   formData.append('file', {
@@ -352,7 +402,7 @@ async function handleResp(response, autoShowMsg, success, failure, refLoading) {
   }
 
   const headers = await response.headers;
-  if (result && typeof (result) === 'object') {
+  if (result && typeof result === 'object') {
     result.headers = headers;
   }
 
@@ -399,7 +449,7 @@ function checkFailure(result) {
   }
 
   const code = meta.code.toLowerCase().split('-').join('');
- 
+
   if (Object.keys(ErrorMsg).includes(code)) {
     return ErrorMsg[code];
   }
@@ -408,11 +458,13 @@ function checkFailure(result) {
 }
 
 export function anonymousLogin(refLoading = null) {
-  reduxStore.store.dispatch(Actions.actionLogin({
-    username: Consts.anonymousAccount,
-    password: Consts.anonymousPassword,
-    refLoading: refLoading,
-  }));
+  reduxStore.store.dispatch(
+    Actions.actionLogin({
+      username: Consts.anonymousAccount,
+      password: Consts.anonymousPassword,
+      refLoading: refLoading,
+    }),
+  );
 }
 
 export default client;

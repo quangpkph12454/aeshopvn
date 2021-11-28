@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import ImageHelper from '../resource/ImageHelper';
-import Default from '../resource/Default';
-import ColorStyle from '../resource/ColorStyle';
+import ImageHelper from '../assets/Images';
+import Default from '../functions/AppStyles';
+import ColorStyle from '../assets/colors/Colors';
 
 export default class TitleBar extends Component {
   render() {

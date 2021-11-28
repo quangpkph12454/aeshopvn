@@ -38,4 +38,16 @@ export default {
     token_type: 'token_type',
     access_token: 'access_token',
   },
+  homeItemType: {
+    BANNER: 1,
+    CATEGORY: 2,
+    PRODUCT_NEW: 3,
+    SELLING_PRODUCT: 4,
+    END: 5,
+  },
+  notificationItemType: {
+    BANNER: 1,
+    TITLE: 2,
+    NEWS: 3,
+  },
 };

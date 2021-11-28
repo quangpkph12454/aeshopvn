@@ -1,4 +1,7 @@
-export const Colors = {
+export default {
+  tabActive: 'red',
+  tabInactive: 'black',
+  tabWhite: 'white',
   white: '#fff',
   orange: '#ffb644',
   sloganOrange: '#FF8A00FF',

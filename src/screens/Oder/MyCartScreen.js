@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import ImageHelper from '../../resource/ImageHelper';
+import ImageHelper from '../../assets/Images';
 import { strings } from "../../assets/strings/i18n/i18n";
 import TitleBar from "../../components/TitleBar";
-import Default from "../../resource/Default";
+import Default from "../../functions/AppStyles";
 import ViewItemMyCart from "../../components/ViewItemMyCart";
 const Data = [
   {

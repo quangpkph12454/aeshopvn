@@ -1,9 +1,9 @@
 
 import React, {Component} from 'react';
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
-import Default from '../../../resource/Default';
+import Default from '../../../functions/AppStyles';
 import TitleBar from '../../../components/TitleBar';
-import ColorStyle from '../../../resource/ColorStyle';
+import ColorStyle from '../../../assets/colors/Colors';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import {Actions} from 'react-native-router-flux';
 import { strings } from "../../../assets/strings/i18n/i18n";

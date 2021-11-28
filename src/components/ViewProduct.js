@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import Default from '../resource/Default';
-import ColorStyle from '../resource/ColorStyle';
+import Default from '../functions/AppStyles';
+import ColorStyle from '../assets/colors/Colors';
 import ViewStar from './ViewStar';
-import ImageHelper from '../resource/ImageHelper';
+import ImageHelper from '../assets/Images';
 import {Actions} from 'react-native-router-flux';
 import NumberFormat from 'react-number-format';
 export default class ViewProduct extends Component {

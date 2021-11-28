@@ -1,8 +1,8 @@
 
 import React, {Component} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import Default from '../../../resource/Default';
-import ImageHelper from '../../../resource/ImageHelper';
+import Default from '../../../functions/AppStyles';
+import ImageHelper from '../../../assets/Images';
 import {Actions} from 'react-native-router-flux';
 import {strings} from '../../../assets/strings/i18n/i18n';
 

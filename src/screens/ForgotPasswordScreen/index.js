@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {
   View,
@@ -9,12 +8,14 @@ import {
   Image,
   TextInput,
 } from 'react-native';
-import ColorStyle from '../../resource/ColorStyle';
+import ColorStyle from '../../assets/colors/Colors';
 import OtpInputs from 'react-native-otp-inputs';
 import {Actions} from 'react-native-router-flux';
-import Default from "../../resource/Default";
-import ImageHelper from "../../resource/ImageHelper";
-import { strings } from "../../assets/strings/i18n/i18n";
+import Default from '../../functions/AppStyles';
+import ImageHelper from '../../assets/Images';
+import {strings} from '../../assets/strings/i18n/i18n';
+import ToolbarAuth from '../../components/toolbar/ToolbarAuth';
+import styles from "./styles";
 
 let checkEmailId = -1;
 let checkPasswordId = -1;
@@ -58,24 +59,12 @@ export default class ForgetPassword extends Component {
   render() {
     return (
       <View style={Default.container}>
-        <View style={{flexDirection: 'column'}}>
-          <TouchableOpacity
-            onPress={() => Actions.pop()}
-            style={{width: 20, height: 20,margin:10}}>
-            <Image
-              style={{width: 12, height: 20}}
-              source={ImageHelper.iconBack}
-            />
-          </TouchableOpacity>
-          <Text style={[Default.fontTitle, {marginLeft: 16}]}>
-            {strings('forgot_password')}
-          </Text>
-        </View>
+        <ToolbarAuth title={strings('forgot_password')} />
         {this.state.setStep === 1
           ? this.renderStep(1)
           : this.state.setStep === 2
-            ? this.renderStep(2)
-            : this.renderStep(3)}
+          ? this.renderStep(2)
+          : this.renderStep(3)}
       </View>
     );
   }
@@ -120,8 +109,7 @@ export default class ForgetPassword extends Component {
                   marginHorizontal: 20,
                   marginBottom: 20,
                 }}>
-                Hãy nhập lại email/số điện thoại mà bạn đã dùng để đăng ký.
-                Chúng tôi sẽ gửi cho bạn một mã OTP để thay đổi mật khẩu mới
+                {strings('txtForgot')}
               </Text>
               <TextInput
                 style={[Default.textInput, {marginHorizontal: 20}]}
@@ -136,7 +124,7 @@ export default class ForgetPassword extends Component {
                 alignItems: 'center',
               }}>
               <Text style={{fontSize: 15, color: 'black'}}>
-                Nhập mã OTP được gửi đến
+                {strings('txtMaOTP')}
               </Text>
               <View
                 style={{
@@ -213,18 +201,6 @@ export default class ForgetPassword extends Component {
     );
   }
 
-  // renderInput(stateName, valueName, placeholder, secure, validState, callback) {
-  //   return (
-  //     <View animation="fadeInLeftBig">
-  //       <TextInput
-  //         style={[Default.textInput,{marginHorizontal:20}]}
-  //         placeholder={strings('username')}
-  //         placeholderTextColor={ColorStyle.gray}
-  //       />
-  //     </View>
-  //   );
-  // }
-
   renderOTPVerify() {
     let minute = '0' + this.state.minute;
     let second =
@@ -238,15 +214,8 @@ export default class ForgetPassword extends Component {
             width: '100%',
             flexDirection: 'row',
           }}
-          inputStyles={{
-            borderRadius: 8,
-            borderColor: '#333333',
-            borderWidth: 1.5,
-            marginRight: 5.15,
-            height: 50,
-            width: (Default.constants.widthScreen - 40) / 6 - 3.5,
-            textAlign: 'center',
-          }}
+          inputStyles={styles.otpInputs
+          }
           handleChange={code => console.log(code)}
           numberOfInputs={6}
         />
@@ -318,65 +287,3 @@ export default class ForgetPassword extends Component {
   //     this.setState({validConfirmPass: result});
   //   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    paddingTop: 25,
-  },
-  viewTitle: {
-    marginTop: 60,
-  },
-  contenLineCount: {
-    width: Default.constants.widthScreen - 40,
-    marginHorizontal: 20,
-    marginTop: 25,
-    marginBottom: 46,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  viewNumCount: {
-    height: 24,
-    width: 24,
-    borderWidth: 1,
-    borderColor: '#333333',
-    color: 'white',
-    borderRadius: 12,
-    textAlign: 'center',
-    paddingTop: 2,
-  },
-  line: {
-    height: 1,
-    backgroundColor: '#E2E2E2',
-    width: '30%',
-  },
-  btnNext: {
-    marginHorizontal: 20,
-    width: Default.constants.widthScreen - 40,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: ColorStyle.tabActive,
-    justifyContent: 'center',
-    marginTop: 50,
-  },
-  textBtn: {
-    // color: AppConstants.backgroudColor,
-    fontSize: 16,
-    fontWeight: '700',
-    textAlign: 'center',
-  },
-  OTPVerify: {
-    marginTop: 30,
-    marginHorizontal: 20,
-    // width: AppConstants._width,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  reSend: {
-    marginTop: 20,
-    textAlign: 'center',
-    flexDirection: 'row',
-  },
-});

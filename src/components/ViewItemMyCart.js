@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import Default from '../resource/Default';
-import ColorStyle from '../resource/ColorStyle';
-import ImageHelper from '../resource/ImageHelper';
+import Default from '../functions/AppStyles';
+import ColorStyle from '../assets/colors/Colors';
+import ImageHelper from '../assets/Images';
 export default class ViewItemMyCart extends Component {
   constructor(props) {
     super(props);

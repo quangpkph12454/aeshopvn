@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {BottomNavigation} from 'react-native-paper';
 import {View} from 'react-native';
-import HomeScreen from './HomeScreen/HomeScreen';
-import MenuScreen from './MenuScreen/MenuScreen';
-import NotificationScreen from './NotificationScreen/NotificationScreen';
-import ProfileScreen from './ProfileScreen/ProfileScreen';
-import ImageHelper from '../resource/ImageHelper';
-import ColorStyle from '../resource/ColorStyle';
+import ImageHelper from '../assets/Images';
+import ColorStyle from '../assets/colors/Colors';
 import {strings} from '../assets/strings/i18n/i18n';
 import TabBar, {iconTypes} from 'react-native-fluidbottomnavigation';
+import HomeScreen from './HomeScreen';
+import MenuScreen from './MenuScreen';
+import NotificationScreen from './NotificationScreen';
+import ProfileScreen from './ProfileScreen';
 export default class MainApp extends Component {
   constructor(props) {
     super(props);
@@ -55,13 +55,8 @@ export default class MainApp extends Component {
           navigationState={this.state}
           onIndexChange={this._handleIndexChange}
           renderScene={this._renderScene}
-          // renderIcon={this._renderIcon}
           barStyle={{
             display: 'none',
-            // backgroundColor: 'white',
-            // borderTopLeftRadius: 8,
-            // borderTopRightRadius: 8,
-            // borderTopWidth: 0,
           }}
           activeColor={ColorStyle.tabActive}
           inactiveColor={ColorStyle.tabInactive}

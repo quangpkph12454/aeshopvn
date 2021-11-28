@@ -1,6 +1,21 @@
-import {Dimensions, PixelRatio} from 'react-native';
-import ColorStyle from './ColorStyle';
-
+import {Dimensions, PixelRatio, StatusBar} from 'react-native';
+import ColorStyle from '../assets/colors/Colors';
+const windowWidth = Dimensions.get('window').width;
+const windowHeight =
+  Dimensions.get('window').height -
+  ((StatusBar.currentHeight || 0) > 24 &&
+  ((StatusBar.currentHeight || 0) != 30 ||
+    Dimensions.get('screen').height - Dimensions.get('window').height > 48)
+    ? 0
+    : StatusBar.currentHeight);
+const screenWidth = Dimensions.get('screen').width;
+const screenHeight = Dimensions.get('screen').height;
+const textSizeApp = 14;
+const maxThumbnailSize = 600;
+const maxNicknameLength = 20;
+const maxSloganLength = 200;
+const vipBoundSizeBig = 170;
+const minSplashTime = 4; // seconds
 var widthScreen = Dimensions.get('window').width;
 var heightScreen = Dimensions.get('window').height;
 var screenSizeByInch =
@@ -18,7 +33,7 @@ export default {
   },
   container: {
     backgroundColor: '#F9F9F9',
-    marginTop: X * 0.65,
+    paddingTop: X * 0.65,
     flex: 1,
     flexDirection: 'column',
   },

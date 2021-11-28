@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, Image, FlatList} from 'react-native';
-import Default from '../../../resource/Default';
-import ColorStyle from '../../../resource/ColorStyle';
-import ImageHelper from '../../../resource/ImageHelper';
+import Default from '../../../functions/AppStyles';
+import ColorStyle from '../../../assets/colors/Colors';
+import ImageHelper from '../../../assets/Images';
 import ViewProduct from '../../../components/ViewProduct';
 import { strings } from "../../../assets/strings/i18n/i18n";
 const Data = [

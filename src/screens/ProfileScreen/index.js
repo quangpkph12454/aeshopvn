@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {
   View,
@@ -8,11 +7,12 @@ import {
   Image,
   AsyncStorage,
 } from 'react-native';
-import Default from '../../resource/Default';
+import Default from '../../functions/AppStyles';
 import {Actions} from 'react-native-router-flux';
-import ImageHelper from '../../resource/ImageHelper';
-import ColorStyle from '../../resource/ColorStyle';
+import ImageHelper from '../../assets/Images';
+import ColorStyle from '../../assets/colors/Colors';
 import {strings} from '../../assets/strings/i18n/i18n';
+import styles from "./styles";
 export default class ProfileScreen extends Component {
   constructor(props) {
     super(props);
@@ -25,16 +25,7 @@ export default class ProfileScreen extends Component {
       <View style={Default.container}>
         <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
           {this.state.checkLogin ? (
-            <View
-              style={{
-                width: Default.constants.widthScreen,
-                height: Default.constants.heightScreen / 7,
-                flexDirection: 'row',
-                paddingHorizontal: 20,
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                backgroundColor: 'red',
-              }}>
+            <View style={styles.viewContainer}>
               <View
                 style={{
                   flex: 3,
@@ -44,11 +35,8 @@ export default class ProfileScreen extends Component {
                 }}>
                 <Image
                   source={ImageHelper.avata}
-                  style={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: 50,
-                  }}
+                  style={styles.imgAva
+                  }
                 />
                 <View style={{marginLeft: 10}}>
                   <Text style={Default.text.textTitle}>Trần Hiếu</Text>
@@ -72,15 +60,8 @@ export default class ProfileScreen extends Component {
             </View>
           ) : (
             <View
-              style={{
-                width: Default.constants.widthScreen,
-                height: Default.constants.heightScreen / 7,
-                flexDirection: 'row',
-                paddingHorizontal: 20,
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                backgroundColor: 'red',
-              }}>
+              style={styles.viewContainer
+              }>
               <View
                 style={{
                   flex: 1,
@@ -90,11 +71,8 @@ export default class ProfileScreen extends Component {
                 }}>
                 <Image
                   source={ImageHelper.logo_}
-                  style={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: 50,
-                  }}
+                  style={styles.imgAva
+                  }
                 />
               </View>
               <View
@@ -107,29 +85,14 @@ export default class ProfileScreen extends Component {
                 }}>
                 <TouchableOpacity
                   onPress={() => Actions.jump('loginScreen')}
-                  style={{
-                    width: Default.constants.X * 2.4,
-                    height: Default.constants.X * 0.8,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderTopLeftRadius: 10,
-                    borderBottomLeftRadius: 10,
-                    marginRight: 5,
-                    backgroundColor: ColorStyle.tabWhite,
-                  }}>
+                  style={styles.buttonLG}>
                   <Text>{strings('login')}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => Actions.jump('registerScreen')}
-                  style={{
-                    width: Default.constants.X * 2.4,
-                    height: Default.constants.X * 0.8,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderTopRightRadius: 10,
-                    borderBottomRightRadius: 10,
-                    backgroundColor: ColorStyle.tabWhite,
-                  }}>
+                  style={{...styles.buttonLG, borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0, borderTopRightRadius: 10,
+                    borderBottomRightRadius: 10,}}>
                   <Text>{strings('register')}</Text>
                 </TouchableOpacity>
               </View>
@@ -139,19 +102,11 @@ export default class ProfileScreen extends Component {
           <View style={{width: Default.constants.widthScreen, marginTop: 17}}>
             <TouchableOpacity
               onPress={() => Actions.jump('myOrderScreen')}
-              style={{
-                width: Default.constants.widthScreen,
-                height: 62,
-                borderTopWidth: 1,
-                borderColor: '#E2E2E2',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                flexDirection: 'row',
-                paddingHorizontal: 20,
-              }}>
+              style={styles.body
+              }>
               <View style={{flexDirection: 'row'}}>
                 <Image style={{marginRight: 20}} source={ImageHelper.orders} />
-                <Text>Đơn hàng của tôi</Text>
+                <Text>{strings('myOrders')}</Text>
               </View>
               <Image
                 style={{alignItems: 'center'}}
@@ -176,7 +131,7 @@ export default class ProfileScreen extends Component {
                   style={{marginRight: 20, alignItems: 'center'}}
                   source={ImageHelper.myDetails}
                 />
-                <Text>Tài khoản của tôi</Text>
+                <Text>{strings('myAccount')}</Text>
               </View>
               <Image
                 style={{alignItems: 'center'}}
@@ -200,7 +155,7 @@ export default class ProfileScreen extends Component {
                   style={{marginRight: 20}}
                   source={ImageHelper.location}
                 />
-                <Text>Địa chỉ giao hàng</Text>
+                <Text>{strings('addOders')}</Text>
               </View>
               <Image
                 style={{alignItems: 'center'}}
@@ -221,7 +176,7 @@ export default class ProfileScreen extends Component {
               }}>
               <View style={{flexDirection: 'row'}}>
                 <Image style={{marginRight: 20}} source={ImageHelper.ptgh} />
-                <Text>Phương thức thanh toán</Text>
+                <Text>{strings('paymentCards')}</Text>
               </View>
               <Image
                 style={{alignItems: 'center'}}
@@ -242,7 +197,7 @@ export default class ProfileScreen extends Component {
               }}>
               <View style={{flexDirection: 'row'}}>
                 <Image style={{marginRight: 20}} source={ImageHelper.help} />
-                <Text>Hỗ trợ</Text>
+                <Text>{strings('helpCenter')}</Text>
               </View>
               <Image
                 style={{alignItems: 'center'}}
@@ -264,7 +219,7 @@ export default class ProfileScreen extends Component {
               }}>
               <View style={{flexDirection: 'row'}}>
                 <Image style={{marginRight: 20}} source={ImageHelper.about} />
-                <Text>Thông tin cửa hàng</Text>
+                <Text>{strings('aboutNameShop')}</Text>
               </View>
               <Image
                 style={{alignItems: 'center'}}

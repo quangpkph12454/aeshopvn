@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {
   AsyncStorage,
@@ -8,12 +7,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Default from '../../../resource/Default';
-import ImageHelper from '../../../resource/ImageHelper';
-import ColorStyle from '../../../resource/ColorStyle';
+import Default from '../../../functions/AppStyles';
+import ImageHelper from '../../../assets/Images';
+import ColorStyle from '../../../assets/colors/Colors';
 import {Actions} from 'react-native-router-flux';
 import CheckBox from '@react-native-community/checkbox';
-import { strings } from "../../../assets/strings/i18n/i18n";
+import {strings} from '../../../assets/strings/i18n/i18n';
+import ToolbarAuth from '../../../components/toolbar/ToolbarAuth';
+import styles from '../Login/styles';
 
 export default class RegisterScreen extends Component {
   constructor(props) {
@@ -29,19 +30,7 @@ export default class RegisterScreen extends Component {
   render() {
     return (
       <View style={Default.container}>
-        <View style={{flexDirection: 'column'}}>
-          <TouchableOpacity
-            onPress={() => Actions.pop()}
-            style={{width: 20, height: 20, margin: 10}}>
-            <Image
-              style={{width: 12, height: 20}}
-              source={ImageHelper.iconBack}
-            />
-          </TouchableOpacity>
-          <Text style={[Default.fontTitle, {marginLeft: 16}]}>
-            {strings('register')}
-          </Text>
-        </View>
+        <ToolbarAuth title={strings('register')} />
         <View
           style={{
             flex: 1,
@@ -57,14 +46,7 @@ export default class RegisterScreen extends Component {
               onChangeText={v => this.setState({userName: v})}
               value={this.state.userName}
             />
-            <Text
-              style={{
-                marginLeft: Default.constants.X * 0.3,
-                marginVertical: Default.constants.X * 0.1,
-                color: 'red',
-              }}>
-              {this.state.err.username}
-            </Text>
+            <Text style={styles.textErr}>{this.state.err.username}</Text>
           </View>
           <View>
             <TextInput
@@ -75,14 +57,7 @@ export default class RegisterScreen extends Component {
               secureTextEntry={!this.state.isSelected}
               placeholderTextColor={ColorStyle.gray}
             />
-            <Text
-              style={{
-                marginLeft: Default.constants.X * 0.3,
-                marginVertical: Default.constants.X * 0.1,
-                color: 'red',
-              }}>
-              {this.state.err.password}
-            </Text>
+            <Text style={styles.textErr}>{this.state.err.password}</Text>
           </View>
           <View>
             <TextInput

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Image, Text, View} from 'react-native';
-import Default from '../resource/Default';
-import ColorStyle from '../resource/ColorStyle';
+import Default from '../functions/AppStyles';
+import ColorStyle from '../assets/colors/Colors';
 
 export default class ViewItemMess extends Component {
   render() {

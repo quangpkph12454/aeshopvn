@@ -1,9 +1,9 @@
 
 import React, {Component} from 'react';
 import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
-import Default from '../../../resource/Default';
+import Default from '../../../functions/AppStyles';
 import {Actions} from 'react-native-router-flux';
-import ImageHelper from '../../../resource/ImageHelper';
+import ImageHelper from '../../../assets/Images';
 import TitleBar from "../../../components/TitleBar";
 import { strings } from "../../../assets/strings/i18n/i18n";
 const Data = [

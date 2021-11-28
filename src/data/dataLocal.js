@@ -1,4 +1,4 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const accessToken = 'ACCESS_TOKEN';
 const userInfo = 'USER_INFO';
@@ -7,7 +7,7 @@ const deviceId = 'DEVICE_ID';
 async function saveAccessToken(value) {
   try {
     return AsyncStorage.setItem(accessToken, value);
-  } catch(e) {
+  } catch (e) {
     console.log(e);
   }
 }
@@ -15,7 +15,7 @@ async function saveAccessToken(value) {
 async function getAccessToken() {
   try {
     return AsyncStorage.getItem(accessToken, '');
-  } catch(e) {
+  } catch (e) {
     console.log(e);
   }
 }
@@ -23,7 +23,7 @@ async function getAccessToken() {
 async function removeAccessToken() {
   try {
     return AsyncStorage.removeItem(accessToken);
-  } catch(e){
+  } catch (e) {
     console.log(e);
   }
 }
@@ -31,7 +31,7 @@ async function removeAccessToken() {
 async function saveUserInfo(value) {
   try {
     return AsyncStorage.setItem(userInfo, JSON.stringify(value));
-  }catch(e) {
+  } catch (e) {
     console.log(e);
   }
 }
@@ -39,7 +39,7 @@ async function saveUserInfo(value) {
 async function getUserInfo() {
   try {
     return AsyncStorage.getItem(userInfo, null);
-  }catch(e) {
+  } catch (e) {
     console.log(e);
   }
 }
@@ -47,7 +47,7 @@ async function getUserInfo() {
 async function removeUserInfo() {
   try {
     return AsyncStorage.removeItem(userInfo);
-  }catch(e) {
+  } catch (e) {
     console.log(e);
   }
 }
@@ -64,7 +64,7 @@ async function saveDeviceId(value) {
 async function getDeviceId() {
   try {
     return AsyncStorage.getItem(deviceId);
-  } catch(e) {
+  } catch (e) {
     console.log(e);
     return null;
   }

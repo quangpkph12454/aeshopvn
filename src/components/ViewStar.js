@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, Image, ScrollView} from 'react-native';
-import ImageHelper from '../resource/ImageHelper';
+import ImageHelper from '../assets/Images';
 
 export default class ViewStar extends Component {
   render() {

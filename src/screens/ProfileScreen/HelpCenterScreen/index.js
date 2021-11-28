@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
 import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
-import Default from '../../../resource/Default';
+import Default from '../../../functions/AppStyles';
 import ViewHelpCenter from '../../../components/ViewHelpCenter';
 import TitleBar from "../../../components/TitleBar";
 import { strings } from "../../../assets/strings/i18n/i18n";

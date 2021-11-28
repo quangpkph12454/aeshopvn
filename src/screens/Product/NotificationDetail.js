@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import ImageHelper from '../../resource/ImageHelper';
-import Default from '../../resource/Default';
+import ImageHelper from '../../assets/Images';
+import Default from '../../functions/AppStyles';
 const Data = [
   {
     images: ImageHelper.imgProduct,

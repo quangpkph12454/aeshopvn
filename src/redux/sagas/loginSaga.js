@@ -1,6 +1,11 @@
 import {call, put} from 'redux-saga/effects';
 import {loginService} from '../../network/UserInfoService';
-import {hideLoading, saveUserDataFromToken, showAlert, showLoading} from '../../functions/utils';
+import {
+  hideLoading,
+  saveUserDataFromToken,
+  showAlert,
+  showLoading,
+} from '../../functions/utils';
 import {ErrorMsg} from '../../assets/strings/ErrorMsg';
 import reduxStore from '../config/redux';
 import loginAction from '../actions/loginAction';
@@ -26,7 +31,7 @@ function* postLoginAction(username, password, refLoading) {
         showAlert(ErrorMsg.parseUserTokenFailed);
         return;
       }
-        reduxStore.store.dispatch(loginAction.loginSuccess({userInfo}));
+      reduxStore.store.dispatch(loginAction.loginSuccess({userInfo}));
     } else {
       yield put({type: 'LOGIN_FAILURE', payload: response.failure});
     }
@@ -38,5 +43,10 @@ function* postLoginAction(username, password, refLoading) {
 }
 
 export default function* (action) {
-  yield call(postLoginAction, action.payload.username, action.payload.password, action.payload.refLoading);
+  yield call(
+    postLoginAction,
+    action.payload.username,
+    action.payload.password,
+    action.payload.refLoading,
+  );
 }

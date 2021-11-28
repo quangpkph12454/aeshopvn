@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Router, Scene, Stack} from 'react-native-router-flux';
 import {View, StatusBar, AsyncStorage, AppState} from 'react-native';
 import Crashes, {ErrorAttachmentLog} from 'appcenter-crashes';
-import AppConstants from '../resource/AppConstants';
+import AppConstants from '../functions/AppConstants';
 import GlobalInfo from '../Utils/Common/GlobalInfo';
 import MainApp from './MainApp';
 import FlashScreen from './FlashScreen';
@@ -23,7 +23,7 @@ import MyCartScreen from './Oder/MyCartScreen';
 import OrderDetailScreen from './Oder/Detail';
 import CheckoutSuccess from './Checkout/checkoutSuccess';
 import CheckoutFailed from './Checkout/checkoutFailed';
-import MyOrdersScreen from "./Oder";
+import MyOrdersScreen from './Oder';
 
 export default class RoutesClass extends Component {
   componentWillMount() {

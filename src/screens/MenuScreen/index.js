@@ -1,11 +1,11 @@
-
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, Image, FlatList} from 'react-native';
-import Default from '../../resource/Default';
+import Default from '../../functions/AppStyles';
 import SearchView from '../../components/SearchView';
-import ImageHelper from '../../resource/ImageHelper';
-import ColorStyle from '../../resource/ColorStyle';
+import ImageHelper from '../../assets/Images';
+import ColorStyle from '../../assets/colors/Colors';
 import ViewProduct from '../../components/ViewProduct';
+import styles from "./styles";
 const Data = [
   {
     title: 'Áo phông',
@@ -315,61 +315,11 @@ export default class MenuScreen extends Component {
   render() {
     return (
       <View style={Default.container}>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginHorizontal: 20,
-            marginTop: 5,
-            marginBottom: 15,
-          }}>
-          <SearchView />
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-            }}>
-            <TouchableOpacity
-              style={{
-                width: Default.constants.X,
-                height: Default.constants.X,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              onPress={() => alert('giỏ hàng')}>
-              <Image
-                source={ImageHelper.cart}
-                style={{
-                  width: Default.constants.X * 0.6,
-                  height: Default.constants.X * 0.6,
-                }}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                width: Default.constants.X,
-                height: Default.constants.X,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              onPress={() => alert('giỏ hàng')}>
-              <Image
-                source={ImageHelper.icon_mess}
-                style={{
-                  width: Default.constants.X * 0.63,
-                  height: Default.constants.X * 0.6,
-                }}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
+        {this.renderSearch()}
         <View style={{flex: 1, width: Default.constants.widthScreen}}>
           <FlatList
-            style={{
-              marginVertical: 10,
-              flex: 2,
-              padding: 10,
-              backgroundColor: ColorStyle.tabWhite,
-            }}
+            style={styles.flatListCategory
+            }
             data={Data}
             horizontal={true}
             keyExtractor={this.keyExtractor}
@@ -378,18 +328,14 @@ export default class MenuScreen extends Component {
           />
           <View style={{flex: 8, backgroundColor: '#F6F6F6'}}>
             <FlatList
-              style={{
-                flex: 1,
-                marginHorizontal: 20,
-                height: 100,
-                backgroundColor: ColorStyle.tabWhite,
-              }}
+              style={styles.flatListStyle
+              }
               data={DataStyle}
               renderItem={this.renderItemStyle}
               numColumns={3}
             />
 
-            <View style={{flex: 12, marginHorizontal: 15, marginTop: 20}}>
+            <View style={styles.flatListProduct}>
               <FlatList
                 data={Data1}
                 numColumns={2}
@@ -434,18 +380,12 @@ export default class MenuScreen extends Component {
         onPress={() => {
           this.onMainCategorySelect(index);
         }}
-        style={{
-          height: '100%',
-          width: 100,
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          paddingHorizontal: 19,
-          marginBottom: 30,
-        }}>
+        style={styles.buttonCategory
+        }>
         <View style={{alignItems: 'center'}}>
           <Image
             source={item.icon}
-            style={{width: 30, height: 30, marginBottom: 10}}
+            style={styles.imgCategory}
           />
           <Text
             style={{
@@ -476,5 +416,56 @@ export default class MenuScreen extends Component {
     // if(id_category===index){
     //   console.log(id_category);
     // }
+  }
+  renderSearch() {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          marginHorizontal: 20,
+          marginTop: 5,
+          marginBottom: 15,
+        }}>
+        <SearchView />
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+          }}>
+          <TouchableOpacity
+            style={{
+              width: Default.constants.X,
+              height: Default.constants.X,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            onPress={() => alert('giỏ hàng')}>
+            <Image
+              source={ImageHelper.cart}
+              style={{
+                width: Default.constants.X * 0.6,
+                height: Default.constants.X * 0.6,
+              }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              width: Default.constants.X,
+              height: Default.constants.X,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            onPress={() => alert('giỏ hàng')}>
+            <Image
+              source={ImageHelper.icon_mess}
+              style={{
+                width: Default.constants.X * 0.63,
+                height: Default.constants.X * 0.6,
+              }}
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
   }
 }

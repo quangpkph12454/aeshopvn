@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Dimensions, FlatList, Image, Text, View} from 'react-native';
-import Default from '../resource/Default';
-import ImageHelper from '../resource/ImageHelper';
+import Default from '../functions/AppStyles';
+import ImageHelper from '../assets/Images';
 import Carousel from 'react-native-banner-carousel';
 const images = [
   ImageHelper.banner1,

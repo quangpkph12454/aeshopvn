@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import Default from '../resource/Default';
-import ColorStyle from '../resource/ColorStyle';
+import Default from '../functions/AppStyles';
+import ColorStyle from '../assets/colors/Colors';
 import CheckBox from '@react-native-community/checkbox';
-import ImageHelper from '../resource/ImageHelper';
+import ImageHelper from '../assets/Images';
 import {strings} from '../assets/strings/i18n/i18n';
 
 export default class ViewItemAddress extends Component {

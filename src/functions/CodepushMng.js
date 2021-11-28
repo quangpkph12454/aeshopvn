@@ -1,7 +1,11 @@
 // import codePush from 'react-native-code-push';
 import {String} from '../assets/strings/String';
 
-const updateLatestVersion = (upToDateCallback, statusCallback, downloadProgressCallback) => {
+const updateLatestVersion = (
+  upToDateCallback,
+  statusCallback,
+  downloadProgressCallback,
+) => {
   // codePush.sync({
   //   updateDialog: null,
   //   installMode: codePush.InstallMode.IMMEDIATE,
@@ -28,14 +32,12 @@ const updateLatestVersion = (upToDateCallback, statusCallback, downloadProgressC
   //       msg = String.codepushRestarting;
   //       break;
   //   }
-
   //   if (statusCallback) {
   //     statusCallback({
   //       status: status,
   //       msg: msg,
   //     });
   //   }
-
   //   if (status === Status.UPDATE_INSTALLED) {
   //     codePush.restartApp();
   //   }
@@ -45,7 +47,6 @@ const updateLatestVersion = (upToDateCallback, statusCallback, downloadProgressC
   //   }
   // }).catch(err => {
   //   console.log('Codepush error:', err);
-
   //   if (upToDateCallback) {
   //     upToDateCallback();
   //   }
@@ -66,7 +67,7 @@ const checkNewVersion = async () => {
     oldVersion: current,
     newVersion: update,
   };
-}
+};
 
 export default {
   updateLatestVersion,

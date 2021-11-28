@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import ColorStyle from '../resource/ColorStyle';
-import Default from '../resource/Default';
+import ColorStyle from '../assets/colors/Colors';
+import Default from '../functions/AppStyles';
 import {Actions} from 'react-native-router-flux';
 import { strings } from "../assets/strings/i18n/i18n";
 

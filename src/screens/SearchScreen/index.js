@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {
   Dimensions,
@@ -9,8 +8,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Default from '../../resource/Default';
-import ImageHelper from '../../resource/ImageHelper';
+import Default from '../../functions/AppStyles';
+import ImageHelper from '../../assets/Images';
 import {Actions} from 'react-native-router-flux';
 import ViewProduct from '../../components/ViewProduct';
 
@@ -146,7 +145,12 @@ export default class SearchScreen extends Component {
     return (
       <View style={Default.container}>
         <View
-          style={{flexDirection: 'row', marginHorizontal: 20,justifyContent:'space-between' , marginTop: 5}}>
+          style={{
+            flexDirection: 'row',
+            marginHorizontal: 20,
+            justifyContent: 'space-between',
+            marginTop: 5,
+          }}>
           <TouchableOpacity
             onPress={() => Actions.pop()}
             style={{
@@ -212,7 +216,7 @@ export default class SearchScreen extends Component {
               height: 50,
               alignItems: 'flex-end',
               justifyContent: 'center',
-              backgroundColor:'white'
+              backgroundColor: 'white',
             }}>
             <Image
               style={{width: 21, height: 25}}

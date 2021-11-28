@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import ImageHelper from '../resource/ImageHelper';
-import Default from '../resource/Default';
+import ImageHelper from '../assets/Images';
+import Default from '../functions/AppStyles';
 import { Actions } from "react-native-router-flux";
 
 export default class SearchView extends Component {

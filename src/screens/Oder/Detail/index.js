@@ -9,9 +9,9 @@ import {
 } from 'react-native';
 import TitleBar from '../../../components/TitleBar';
 import ViewItemMyCart from '../../../components/ViewItemMyCart';
-import ColorStyle from '../../../resource/ColorStyle';
+import ColorStyle from '../../../assets/colors/Colors';
 import RBSheet from 'react-native-raw-bottom-sheet';
-import Default from '../../../resource/Default';
+import Default from '../../../functions/AppStyles';
 import {strings} from '../../../assets/strings/i18n/i18n';
 import ViewStar from '../../../components/ViewStar';
 

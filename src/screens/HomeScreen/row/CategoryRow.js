@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {FlatList, View} from 'react-native';
-import ImageHelper from '../../../resource/ImageHelper';
+import ImageHelper from '../../../assets/Images';
 import ViewCategory from '../../../components/ViewCategory';
 // const isTablet = GlobalUtil.isTablet();
 const Data = [

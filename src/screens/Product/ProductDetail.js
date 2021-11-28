@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Default from '../../resource/Default';
+import Default from '../../functions/AppStyles';
 import {
   Dimensions,
   FlatList,
@@ -11,9 +11,9 @@ import {
   View,
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
-import ImageHelper from '../../resource/ImageHelper';
+import ImageHelper from '../../assets/Images';
 import Carousel from 'react-native-banner-carousel';
-import ColorStyle from '../../resource/ColorStyle';
+import ColorStyle from '../../assets/colors/Colors';
 import ViewStar from '../../components/ViewStar';
 import ViewProduct from '../../components/ViewProduct';
 import ViewItemMess from '../../components/ViewItemMess';

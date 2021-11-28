@@ -7,12 +7,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import ColorStyle from '../../../resource/ColorStyle';
+import ColorStyle from '../../../assets/colors/Colors';
 import {Actions} from 'react-native-router-flux';
 import CheckBox from '@react-native-community/checkbox';
-import Default from "../../../resource/Default";
-import ImageHelper from "../../../resource/ImageHelper";
-import { strings } from "../../../assets/strings/i18n/i18n";
+import Default from '../../../functions/AppStyles';
+import ImageHelper from '../../../assets/Images';
+import {strings} from '../../../assets/strings/i18n/i18n';
+import ToolbarAuth from '../../../components/toolbar/ToolbarAuth';
+import styles from './styles';
 const username = 'hieunvmob@gmail.com';
 const password = '1234567';
 export default class LoginScreen extends Component {
@@ -29,26 +31,8 @@ export default class LoginScreen extends Component {
   render() {
     return (
       <View style={Default.container}>
-        <View style={{flexDirection: 'column'}}>
-          <TouchableOpacity
-            onPress={() => Actions.pop()}
-            style={{width: 20, height: 20, margin: 10}}>
-            <Image
-              style={{width: 12, height: 20}}
-              source={ImageHelper.iconBack}
-            />
-          </TouchableOpacity>
-          <Text style={[Default.fontTitle, {marginLeft: 16}]}>
-            {strings('login')}
-          </Text>
-        </View>
-        <View
-          style={{
-            flex: 1,
-            marginHorizontal: 20,
-            alignItems: 'center',
-            marginTop: Default.constants.X * 2,
-          }}>
+        <ToolbarAuth title={strings('login')} />
+        <View style={styles.body}>
           <View>
             <TextInput
               style={Default.textInput}
@@ -59,11 +43,7 @@ export default class LoginScreen extends Component {
               placeholderTextColor={ColorStyle.gray}
             />
             <Text
-              style={{
-                marginLeft: Default.constants.X * 0.3,
-                marginVertical: Default.constants.X * 0.1,
-                color: 'red',
-              }}>
+              style={styles.textErr}>
               {this.state.err.username}
             </Text>
           </View>
@@ -77,21 +57,12 @@ export default class LoginScreen extends Component {
               placeholderTextColor={ColorStyle.gray}
             />
             <Text
-              style={{
-                marginLeft: Default.constants.X * 0.3,
-                marginVertical: Default.constants.X * 0.1,
-                color: 'red',
-              }}>
+              style={styles.textErr}>
               {this.state.err.password}
             </Text>
           </View>
           <View
-            style={{
-              width: Default.constants.widthScreen - 40,
-              marginTop: 16,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
+            style={styles.viewCheckBox}>
             <View
               style={{
                 flexDirection: 'row',
@@ -139,12 +110,8 @@ export default class LoginScreen extends Component {
             </TouchableOpacity>
           </View>
           <View
-            style={{
-              flexDirection: 'row',
-              width: Default.constants.widthScreen,
-              justifyContent: 'space-evenly',
-              marginTop: Default.constants.X * 2.2,
-            }}>
+            style={styles.viewFBGG
+            }>
             <TouchableOpacity style={Default.button.buttonFBGG}>
               <Image source={ImageHelper.gg} />
             </TouchableOpacity>
@@ -194,11 +161,10 @@ export default class LoginScreen extends Component {
       let save = {};
       save.username = this.state.username;
       save.password = this.state.password;
-      await AsyncStorage.setItem('user','hieu', null);
+      await AsyncStorage.setItem('user', 'hieu', null);
       setTimeout(() => {
         Actions.jump('mainApp');
       }, 200);
     }
   }
 }
-

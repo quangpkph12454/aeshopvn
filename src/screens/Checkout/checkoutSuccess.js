@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Image, View } from "react-native";
-import Default from '../../resource/Default';
-import ImageHelper from "../../resource/ImageHelper";
+import Default from '../../functions/AppStyles';
+import ImageHelper from "../../assets/Images";
 
 export default class CheckoutSuccess extends Component {
   constructor(props) {

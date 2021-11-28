@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import Default from '../resource/Default';
+import Default from '../functions/AppStyles';
 import {Actions} from 'react-native-router-flux';
 
 export default class ViewNotification extends Component {

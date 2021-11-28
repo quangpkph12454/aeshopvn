@@ -6,7 +6,9 @@ export default {
   password: 'Mật khẩu',
   password_re: 'Nhập lại mật khẩu',
   forgot_password: 'Quên mật khẩu ?',
-
+  txtForgot:' Hãy nhập lại email/số điện thoại mà bạn đã dùng để đăng ký.' +
+    'Chúng tôi sẽ gửi cho bạn một mã OTP để thay đổi mật khẩu mới',
+  txtMaOTP:'Nhập mã OTP được gửi đến',
   sampleUserName: 'abc@gmail.com',
   samplePassword: '********',
   valid_user: 'Vui lòng nhập lại tài khoản',
@@ -95,5 +97,6 @@ export default {
   success:'Đơn hàng đã thanh toán',
   successDes:'Đơn hàng đã được thanh toán và đã sẵn sàng để giao tới cho bạn',
   failed:'Thanh toán thất bại!',
-  
+
+
 };

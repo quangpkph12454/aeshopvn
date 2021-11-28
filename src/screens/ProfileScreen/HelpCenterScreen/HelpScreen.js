@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import Default from '../../../resource/Default';
+import Default from '../../../functions/AppStyles';
 import TitleBar from "../../../components/TitleBar";
 
 export default class HelpScreen extends Component {

@@ -7,12 +7,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Default from '../../../resource/Default';
+import Default from '../../../functions/AppStyles';
 import ViewItemAddress from '../../../components/ViewItemAddress';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import {Actions} from 'react-native-router-flux';
-import ImageHelper from '../../../resource/ImageHelper';
-import ColorStyle from '../../../resource/ColorStyle';
+import ImageHelper from '../../../assets/Images';
+import ColorStyle from '../../../assets/colors/Colors';
 import {strings} from '../../../assets/strings/i18n/i18n';
 import CheckBox from '@react-native-community/checkbox';
 const Data = [

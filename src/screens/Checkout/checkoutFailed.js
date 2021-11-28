@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View } from "react-native";
-import Default from "../../resource/Default";
+import Default from "../../functions/AppStyles";
 
 export default class CheckoutFailed extends Component{
   constructor(props) {
