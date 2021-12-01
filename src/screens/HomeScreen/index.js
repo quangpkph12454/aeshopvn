@@ -58,7 +58,7 @@ class HomeScreen extends Component {
           style={{flex: 1, height: '100%'}}
           ListFooterComponent={this.renderFooter.bind(this)}
           onEndReachedThreshold={0.4}
-          // onEndReached={() => this.handleLoadMore()}
+          onEndReached={() => this.handleLoadMore()}
           ref={ref => {
             this.listRef = ref;
           }}
@@ -114,18 +114,18 @@ class HomeScreen extends Component {
       </View>
     );
   }
-  // handleLoadMore(){
-  //   this.getProduct()
-  // }
+  handleLoadMore() {
+    this.getProduct();
+  }
   renderFooter = () => {
     if (!this.state.loading) {
       return null;
     }
     return <UIActivityIndicator color={Colors.tabActive} size={20} />;
   };
-  // getProduct(){
-  //   console.log('abc');
-  // }
+  getProduct() {
+    console.log('abc');
+  }
 }
 const mapStateToProps = state => {
   return {};

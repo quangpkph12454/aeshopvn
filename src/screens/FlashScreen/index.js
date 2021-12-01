@@ -5,7 +5,7 @@ import ImageHelper from '../../assets/Images';
 import {Actions} from 'react-native-router-flux';
 import Default from '../../functions/AppStyles';
 import {strings} from '../../assets/strings/i18n/i18n';
-import styles from "./styles";
+import styles from './styles';
 
 export default class FlashScreen extends Component {
   constructor(props) {
@@ -28,18 +28,9 @@ export default class FlashScreen extends Component {
 
   render() {
     return (
-      <View
-        style={styles.container
-        }>
-        <Image
-          source={ImageHelper.logo}
-          style={styles.logo
-          }
-        />
-        <Text
-          style={styles.text}>
-          {strings('slogan')}
-        </Text>
+      <View style={styles.container}>
+        <Image source={ImageHelper.logo} style={styles.logo} />
+        <Text style={styles.text}>{strings('slogan')}</Text>
       </View>
     );
   }
